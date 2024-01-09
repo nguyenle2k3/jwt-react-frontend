@@ -1,23 +1,40 @@
 import './App.scss';
-import axios from 'axios';
-
-// data will be the string we send from our server
-const apiCall = () => {
-  axios.get('http://localhost:8888/').then((data) => {
-    //this console.log will be in our frontend console
-    console.log(data);
-  })
-}
+import Nav from './components/Navigation/Nav';
+import Login from './components/Login/Login';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-
-        <button onClick={apiCall}>Make API Call</button>
-
-      </header>
-    </div>
+    <Router>
+      <div className="app-container">
+        {/* <Nav /> */}
+        <Switch>
+          <Route path="/news">
+            News
+          </Route>
+          <Route path="/about">
+            About
+          </Route>
+          <Route path="/contact">
+            Contact
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/" exact>
+            Home
+          </Route>
+          <Route path="*">
+            404 not found
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
