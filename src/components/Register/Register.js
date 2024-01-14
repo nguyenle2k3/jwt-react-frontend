@@ -1,10 +1,20 @@
 import "./Register.scss";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
+
 const Register = (props) => {
 	let history = useHistory();
 	const handlerClickLogin = () => {
 		history.push("/login");
 	};
+
+	useEffect(() => {
+		axios.get("https://jsonplaceholder.typicode.com/todos/1").then((data) => {
+			console.log(">>> check data axios: ", data);
+		})
+	}, []);
+
 	return (
 		<div className="register-container">
 			<div className="container">
@@ -17,24 +27,24 @@ const Register = (props) => {
 						<div className="title d-sm-none">facebook</div>
 						<div className="form-group">
 							<label>Email:</label>
-							<input type="text" className="form-control" placeholder="Email address"/>
+							<input type="text" className="form-control" placeholder="Email address" />
 						</div>
 
 						<div className="form-group">
 							<label>Phone number:</label>
-							<input type="text" className="form-control" placeholder="Phone number"/>
+							<input type="text" className="form-control" placeholder="Phone number" />
 						</div>
 						<div className="form-group">
 							<label>Username:</label>
-							<input type="text" className="form-control" placeholder="Username"/>
+							<input type="text" className="form-control" placeholder="Username" />
 						</div>
-                        <div className="form-group">
+						<div className="form-group">
 							<label>Password:</label>
-							<input type="password" className="form-control" placeholder="Password"/>
+							<input type="password" className="form-control" placeholder="Password" />
 						</div>
-                        <div className="form-group">
+						<div className="form-group">
 							<label>Re-enter password:</label>
-							<input type="password" className="form-control" placeholder="Re-enter password"/>
+							<input type="password" className="form-control" placeholder="Re-enter password" />
 						</div>
 						<button className="btn btn-primary">Register</button>
 						<hr />
