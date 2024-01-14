@@ -10,9 +10,9 @@ const Register = (props) => {
 	};
 
 	useEffect(() => {
-		axios.get("https://jsonplaceholder.typicode.com/todos/1").then((data) => {
+		axios.get("http://localhost:8888/api/test-api").then((data) => {
 			console.log(">>> check data axios: ", data);
-		})
+		});
 	}, []);
 
 	return (
