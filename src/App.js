@@ -3,6 +3,8 @@ import Nav from "./components/Navigation/Nav";
 import Login from "./components/Login/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Register from "./components/Register/Register";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (
@@ -25,6 +27,18 @@ function App() {
 					<Route path="*">404 not found</Route>
 				</Switch>
 			</div>
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="light"
+			/>
 		</Router>
 	);
 }
